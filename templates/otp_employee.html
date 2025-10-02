@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTP Verification</title>
+    <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8bbd0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('esign.jpeg'); /* Placeholder for your background image */
+            background-size: cover;
+            background-position: center;
+        }
+
+        .otp-box {
+            background-color: rgba(255, 255, 255, 0.8); /* White box with some transparency */
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #ec407a;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 2px solid #ec407a;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #ec407a;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #d81b60;
+        }
+
+        .resend-link {
+            margin-top: 20px;
+        }
+
+        .resend-link a {
+            color: #ec407a;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .resend-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* Timer style */
+        .timer {
+            margin-top: 10px;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="otp-box">
+        <h2>OTP Verification</h2>
+        <form action="dashboard.html" method="post">
+            <input type="text" placeholder="Enter OTP" required>
+            <button onclick="location.href='employee_dashboard.html'" type="submit">Proceed</button>
+        </form>
+        <div class="resend-link">
+            <p id="resendText">Resend in <span id="timer">30</span> seconds</p>
+        </div>
+    </div>
+
+    <script>
+        // Countdown timer for resend OTP
+        let timer = 30;
+        const timerElement = document.getElementById("timer");
+        const resendText = document.getElementById("resendText");
+
+        const countdown = setInterval(() => {
+            timer--;
+            timerElement.textContent = timer;
+
+            if (timer <= 0) {
+                clearInterval(countdown);
+                resendText.innerHTML = '<a href="#">Resend OTP</a>';
+            }
+        }, 1000);
+    </script>
+</body>
+</html>

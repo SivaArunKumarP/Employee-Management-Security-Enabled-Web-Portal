@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PINK FANTASY</title>
+    <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            font-family: 'Arial', sans-serif;
+            background-color: #fce4ec;
+            color: #333;
+            overflow: hidden; /* Prevent scrolling */
+            height: 100vh; /* Full height of the viewport */
+        }
+
+        /* Container to hold the entire layout */
+        .container {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* Header with logo and buttons */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #f8bbd0;
+        }
+
+        /* Logo with company name */
+        .logo-section {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 100px; /* Adjusted size for logo */
+            height: auto;
+        }
+
+        /* Buttons at the top with stick figure images */
+        .nav-buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-button {
+            padding: 10px 10px; /* Adjusted padding */
+            font-size: 25px;
+            background-color: #e85189;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-weight: bold;
+            display: flex; /* This makes the image and text inline */
+            align-items: center; /* Vertically centers image and text */
+            gap: 20px; /* Space between the image and the text */
+        }
+
+        .nav-button img {
+            width: 80px; /* Stick figure size */
+            height: auto;
+        }
+
+        .nav-button:hover {
+            background-color: #d81b60;
+        }
+
+        /* Content section for images */
+        .content {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .picture-box {
+            width: 25%; /* Reduced width for pictures */
+            padding-top: 25%; /* Maintain 1:1 aspect ratio */
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .picture-box img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures the image fits inside the box */
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px; /* Reduced padding */
+            background-color: #f8bbd0;
+            font-weight: bold;
+        }
+
+        footer a {
+            color: #ec407a;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Logo and Navigation -->
+        <div class="header">
+            <div class="logo-section">
+                <div class="logo">
+                    <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" id="logo-placeholder">
+                </div>
+            </div>
+            <div class="nav-buttons">
+                <button onclick="location.href='admin_login'" class="nav-button">
+                    <img src="{{ url_for('static', filename='nezuko.png') }}">
+                    Manager  
+                </button>
+                <button onclick="location.href='employee_login'" class="nav-button">
+                    <img src="{{ url_for('static', filename='anya.png') }}">
+                    Employee
+                </button>
+            </div>
+        </div>
+
+        <!-- Pictures Section -->
+        <div class="content">
+            <div class="picture-box">
+                <img src="{{ url_for('static', filename='index1.jpeg') }}" alt="Picture One" id="picture1-placeholder">
+            </div>
+            <div class="picture-box">
+                <img src="{{ url_for('static', filename='index3.jpeg') }}" alt="Picture Two" id="picture2-placeholder">
+            </div>
+            <div class="picture-box">
+                <img src="{{ url_for('static', filename='index2.jpeg') }}" alt="Picture Three" id="picture3-placeholder">
+            </div>
+        </div>
+
+        <footer>
+            <p>Need Help? <a href="#">Contact Us</a></p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Employee</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8bbd0; /* Light pink background */
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #d81b60;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 10px;
+            font-size: 16px;
+            color: #d81b60;
+        }
+
+        input[type="text"], input[type="email"], input[type="number"], select {
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #d81b60;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #c2185b;
+        }
+
+        .pink-image {
+            width: 100%;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Add New Employee</h1>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        <ul class="flashes">
+            {% for category, message in messages %}
+                <li class="{{ category }}">{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    {% endwith %}
+
+        <form action="/submit_employee" method="POST">
+            <label for="emp-name">Employee Name</label>
+            <input type="text" id="emp-name" name="employee_name" required>
+
+            <label for="emp-email">Email</label>
+            <input type="email" id="emp-email" name="employee_email" required>
+
+            <label for="emp-role">Role</label>
+            <input type="text" id="emp-role" name="employee_role" required>
+
+            <label for="emp-department">Department</label>
+            <input type="text" id="emp-department" name="employee_department" required>
+
+            <label for="emp-contact">Contact Number</label>
+            <input type="text" id="emp-contact" name="employee_contact" required>
+
+            <label for="emp-salary">Salary</label>
+            <input type="number" id="emp-salary" name="employee_salary" required>
+
+            <button type="submit">Create Employee</button>
+        </form>
+
+        <img src="C:/Users/HP/OneDrive/Desktop/Openlab/pictures/shop.jpeg" alt="Aesthetic Dress Shop" class="pink-image">
+    </div>
+
+</body>
+</html>

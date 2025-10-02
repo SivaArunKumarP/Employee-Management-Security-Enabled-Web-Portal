@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manager Dashboard</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #e1bee7; /* Light pink background */
+        }
+
+        /* Dashboard Layout */
+        .container {
+            display: flex;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background-color: #d81b60;
+            width: 250px;
+            height: 300vh;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+            color: white;
+        }
+
+        .sidebar h2 {
+            color: #fff;
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin-bottom: 20px;
+        }
+
+        .sidebar ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+        }
+
+        .sidebar ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+        }
+
+        .main-content h1 {
+            color: #d81b60;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .section {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h2 {
+            font-size: 22px;
+            color: #d81b60;
+            margin-bottom: 15px;
+        }
+
+        .section p {
+            color: #555;
+        }
+
+        /* KPI Graph (Example with a placeholder) */
+        .kpi-graph {
+            background-color: #f06292;
+            height: 250px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: #fff;
+        }
+
+        /* Buttons */
+        button, .link {
+            background-color: #d81b60;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover, .link:hover {
+            background-color: #c2185b;
+        }
+
+        /* Table for employee and inventory management */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #d81b60;
+            color: white;
+        }
+
+        /* New Employee Button */
+        .add-employee-btn {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .add-employee-btn img {
+            margin-right: 10px;
+            width: 20px;
+            height: 20px;
+        }
+
+        .add-employee-btn:hover {
+            color: #c2185b;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <h2>Menu</h2>
+            <ul>
+                <li><a href="#employee">Employee Management</a></li>
+                <li><a href="#inventory">Inventory & Orders</a></li>
+                <li><a href="#sales">Sales & Reporting</a></li>
+                <li><a href="#store">Store Management</a></li>
+                <li><a href="#additional">Additional Features</a></li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <h1>Manager Dashboard</h1>
+
+            <!-- Employee Management Section -->
+            <div class="section" id="employee">
+                <h2>Employee Management</h2>
+                <p>Overview of all employees. Manage performance reviews, leave requests, and more.</p>
+                <table>
+                    <tr>
+                        <th>Employee Name</th>
+                        <th>Role</th>
+                        <th>Performance</th>
+                        <th>Leave Status</th>
+                        <th>Actions</th>
+                    </tr>
+                    <tr>
+                        <td>John Doe</td>
+                        <td>Sales Executive</td>
+                        <td>Excellent</td>
+                        <td>Pending</td>
+                        <td>
+                            <button>Edit</button>
+                            <button>Approve Leave</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Jane Smith</td>
+                        <td>HR Manager</td>
+                        <td>Good</td>
+                        <td>Approved</td>
+                        <td>
+                            <button>Edit</button>
+                        </td>
+                    </tr>
+                </table>
+                
+                <!-- New Add Employee Button -->
+                <a href="{{ url_for('new_employee') }}" class="add-employee-btn">
+                    <img src="../pictures/edit.png" alt="Add Employee Icon" />Add New Employee
+                </a>
+            </div>
+
+            <!-- Inventory & Orders Section -->
+            <div class="section" id="inventory">
+                <h2>Inventory and Order Management</h2>
+                <p>Track and manage inventory levels, and place purchase orders.</p>
+                <table>
+                    <tr>
+                        <th>Product</th>
+                        <th>Stock Level</th>
+                        <th>Location</th>
+                        <th>Actions</th>
+                    </tr>
+                    <tr>
+                        <td>Product A</td>
+                        <td>150</td>
+                        <td>Warehouse 1</td>
+                        <td><button>Order More</button></td>
+                    </tr>
+                    <tr>
+                        <td>Product B</td>
+                        <td>60</td>
+                        <td>Store 3</td>
+                        <td><button>Order More</button></td>
+                    </tr>
+                </table>
+                <button>Place New Order</button>
+            </div>
+
+            <!-- Sales & Reporting Section -->
+            <div class="section" id="sales">
+                <h2>Sales and Reporting</h2>
+                <p>Analyze sales performance, customer data, and track CRM interactions.</p>
+                <div class="kpi-graph">
+                    Sales Performance Graph Placeholder
+                </div>
+                <button>View Detailed Reports</button>
+            </div>
+
+            <!-- Store Management Section -->
+            <div class="section" id="store">
+                <h2>Store Management</h2>
+                <p>Monitor the performance of individual stores and manage store-level inventory.</p>
+                <button>View Store Performance</button>
+                <button>Manage Store Inventory</button>
+            </div>
+
+            <!-- Additional Features Section -->
+            <div class="section" id="additional">
+                <h2>Additional Features</h2>
+                <p>Manage employee schedules, discounts, and suppliers.</p>
+                <button>Manage Discounts</button>
+                <button>Supplier Management</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Dashboard</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f8bbd0; /* Light pink background */
+        }
+
+        /* Dashboard Layout */
+        .container {
+            display: flex;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background-color: #ec407a;
+            width: 250px;
+            height: 100vh;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+            color: white;
+        }
+
+        .sidebar h2 {
+            color: #fff;
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin-bottom: 20px;
+        }
+
+        .sidebar ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+        }
+
+        .sidebar ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+        }
+
+        .main-content h1 {
+            color: #ec407a;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .section {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h2 {
+            font-size: 22px;
+            color: #ec407a;
+            margin-bottom: 15px;
+        }
+
+        .section p {
+            color: #555;
+        }
+
+        /* KPI Graph (Example with a placeholder) */
+        .kpi-graph {
+            background-color: #e1bee7;
+            height: 250px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: #fff;
+        }
+
+        /* Performance Graph */
+        .performance-graph {
+            background-color: #d81b60;
+            height: 250px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        /* Buttons and Links */
+        button, .link {
+            background-color: #ec407a;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover, .link:hover {
+            background-color: #d81b60;
+        }
+
+        /* Table for leave and attendance */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #ec407a;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <h2>Menu</h2>
+            <ul>
+                <li><a href="#performance">Performance Review</a></li>
+                <li><a href="#leave">Leave and Attendance</a></li>
+                <li><a href="#hr">HR & Administrative</a></li>
+                <li><a href="#training">Training & Development</a></li>
+                <li><a href="#expenses">Expense Management</a></li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <h1>Welcome to Your Dashboard</h1>
+
+            <!-- Performance Review Section -->
+            <div class="section" id="performance">
+                <h2>Performance Tracking and Review</h2>
+                <div class="performance-graph">
+                    Performance Review Graph Placeholder
+                </div>
+                <div class="kpi-graph">
+                    KPI Tracking Graph Placeholder
+                </div>
+                <button>View Detailed KPIs</button>
+            </div>
+
+            <!-- Leave and Attendance Section -->
+            <div class="section" id="leave">
+                <h2>Leave and Attendance</h2>
+                <p>Leave Application and Attendance Tracking</p>
+                <table>
+                    <tr>
+                        <th>Date</th>
+                        <th>Status</th>
+                    </tr>
+                    <tr>
+                        <td>2024-10-10</td>
+                        <td>Present</td>
+                    </tr>
+                    <tr>
+                        <td>2024-10-09</td>
+                        <td>Absent</td>
+                    </tr>
+                </table>
+                <button>Apply for Leave</button>
+            </div>
+
+            <!-- HR & Administrative Section -->
+            <div class="section" id="hr">
+                <h2>HR and Administrative</h2>
+                <p>Access the employee directory, company policies, and more.</p>
+                <button>View Employee Directory</button>
+                <button>Access Company Policies</button>
+            </div>
+
+            <!-- Training & Development Section -->
+            <div class="section" id="training">
+                <h2>Training & Development</h2>
+                <p>Access training materials and track your professional development.</p>
+                <button>View Training Courses</button>
+            </div>
+
+            <!-- Expense Management Section -->
+            <div class="section" id="expenses">
+                <h2>Expense Management</h2>
+                <p>Submit and track your expenses.</p>
+                <button>Submit Expense Report</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
